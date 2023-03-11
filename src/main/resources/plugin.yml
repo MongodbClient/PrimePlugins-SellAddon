@@ -1,0 +1,9 @@
+name: PrimePluginsAddon-Sell
+version: 1.0
+author: MongodbClient
+main: de.mongodbclient.primepluginsaddon.selladdon.SellAddon
+api-version: 1.13
+
+commands:
+  sell:
+  buy:
