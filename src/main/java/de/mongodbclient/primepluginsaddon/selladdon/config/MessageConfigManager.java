@@ -32,6 +32,8 @@ public class MessageConfigManager {
 
             yamlConfiguration.set("prefix", "&8[&cMongoSell&8]");
             yamlConfiguration.set("messages.closeInventory", "true");
+            yamlConfiguration.set("messages.inventorysizebuy", 9);
+            yamlConfiguration.set("messages.inventorysizesell", 9);
             yamlConfiguration.set("messages.defaultLore", "&7Price &8: &6{0}");
             yamlConfiguration.set("messages.nothingtoundobuy", "%prefix% &cDu hast nichts zum rückgängig machen!");
             yamlConfiguration.set("messages.inventorynamebuy", "&6MongoSell &8- &cBuy");

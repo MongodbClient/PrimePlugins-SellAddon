@@ -52,7 +52,7 @@ public class SellCommand implements CommandExecutor {
             }
             return true;
         }
-        Inventory inventory = Bukkit.createInventory(null, 9 * 6, SellAddon.getInstance().getMessageConfigManager().getMessage("inventorynamesell"));
+        Inventory inventory = Bukkit.createInventory(null, Integer.parseInt(SellAddon.getInstance().getMessageConfigManager().getMessage("inventorysizesell")), SellAddon.getInstance().getMessageConfigManager().getMessage("inventorynamesell"));
 
         SellAddon.getInstance().getItemConfigManager().loopItems("sellItems").forEach((key, value) -> {
             ItemStack itemStack = new ItemBuilder(Objects.requireNonNull(value.getString("material")))

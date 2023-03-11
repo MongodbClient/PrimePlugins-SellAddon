@@ -51,7 +51,7 @@ public class BuyCommand implements CommandExecutor {
             }
             return true;
         }
-        Inventory inventory = Bukkit.createInventory(null, 9 * 6, SellAddon.getInstance().getMessageConfigManager().getMessage("inventorynamebuy"));
+        Inventory inventory = Bukkit.createInventory(null, Integer.parseInt(SellAddon.getInstance().getMessageConfigManager().getMessage("inventorysizebuy")), SellAddon.getInstance().getMessageConfigManager().getMessage("inventorynamebuy"));
 
         SellAddon.getInstance().getItemConfigManager().loopItems("buyItems").forEach((key, value) -> {
             ItemStack itemStack = new ItemBuilder(Objects.requireNonNull(value.getString("material")))
