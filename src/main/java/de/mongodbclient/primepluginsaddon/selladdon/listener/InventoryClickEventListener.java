@@ -45,7 +45,10 @@ public class InventoryClickEventListener implements Listener {
             int slot = event.getSlot();
             MemorySection memorySection = SellAddon.getInstance().getItemConfigManager().loopItems("sellItems").get("" + slot);
             if (!player.hasPermission(memorySection.getString("permission")) && !memorySection.getString("permission").equalsIgnoreCase("none")) {
-                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("messages.noperms"));
+                if (SellAddon.getInstance().getMessageConfigManager().getMessage("closeInventory").equalsIgnoreCase("true")) {
+                    player.closeInventory();
+                }
+                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("noperms"));
                 return;
             }
             int count = Integer.parseInt(Objects.requireNonNull(memorySection.getString("price")));
@@ -75,7 +78,10 @@ public class InventoryClickEventListener implements Listener {
             int slot = event.getSlot();
             MemorySection memorySection = SellAddon.getInstance().getItemConfigManager().loopItems("buyItems").get("" + slot);
             if (!player.hasPermission(memorySection.getString("permission")) && !memorySection.getString("permission").equalsIgnoreCase("none")) {
-                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("messages.noperms"));
+                if (SellAddon.getInstance().getMessageConfigManager().getMessage("closeInventory").equalsIgnoreCase("true")) {
+                    player.closeInventory();
+                }
+                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("noperms"));
                 return;
             }
             int price = Integer.parseInt(Objects.requireNonNull(memorySection.getString("price")));
