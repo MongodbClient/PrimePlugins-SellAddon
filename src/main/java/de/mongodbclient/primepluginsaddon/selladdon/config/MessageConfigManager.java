@@ -47,6 +47,7 @@ public class MessageConfigManager {
             yamlConfiguration.set("messages.sellNoItem", "%prefix% &cDu hast diese Item nicht!");
             yamlConfiguration.set("messages.sellItem", "%prefix% &aDu hast das Item erfolgreich verkauft!");
             yamlConfiguration.set("messages.sellNoUndo", "%prefix% &cDu hast nicht mehr genügend Coins!");
+            yamlConfiguration.set("messages.noperms", "%prefix% &cDazu hast du keine Berechtigung!");
 
             yamlConfiguration.save(file);
             SellAddon.getInstance().getLogger().log(Level.CONFIG, "Die 'message.yml' wurde erfolgreich erstellt");

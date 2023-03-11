@@ -44,6 +44,10 @@ public class InventoryClickEventListener implements Listener {
             event.setCancelled(true);
             int slot = event.getSlot();
             MemorySection memorySection = SellAddon.getInstance().getItemConfigManager().loopItems("sellItems").get("" + slot);
+            if (!player.hasPermission(memorySection.getString("permission")) && !memorySection.getString("permission").equalsIgnoreCase("none")) {
+                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("messages.noperms"));
+                return;
+            }
             int count = Integer.parseInt(Objects.requireNonNull(memorySection.getString("price")));
             ItemStack itemStack = new ItemBuilder(Objects.requireNonNull(memorySection.getString("material")))
                     .setAmount(Integer.valueOf(memorySection.getString("amount")))
@@ -70,6 +74,10 @@ public class InventoryClickEventListener implements Listener {
             event.setCancelled(true);
             int slot = event.getSlot();
             MemorySection memorySection = SellAddon.getInstance().getItemConfigManager().loopItems("buyItems").get("" + slot);
+            if (!player.hasPermission(memorySection.getString("permission")) && !memorySection.getString("permission").equalsIgnoreCase("none")) {
+                player.sendMessage(SellAddon.getInstance().getMessageConfigManager().getMessage("messages.noperms"));
+                return;
+            }
             int price = Integer.parseInt(Objects.requireNonNull(memorySection.getString("price")));
             SellAddon.getInstance().getCoreCoinsAPI().getCoins(player.getUniqueId()).thenAccept(coins -> {
                 if (SellAddon.getInstance().getCoreCoinsAPI().hasEnough(coins, price)) {

@@ -43,6 +43,7 @@ public class ItemConfigManager {
             itemMeta.put("price", "1000");
             itemMeta.put("display", "DasisteinDisplay");
             itemMeta.put("lore", "Das ist eine Lore");
+            itemMeta.put("permission", "ichbineinepermission");
             itemMeta.put("material", Material.BLACK_STAINED_GLASS.toString());
 
             buyItems.put(0, itemMeta);
